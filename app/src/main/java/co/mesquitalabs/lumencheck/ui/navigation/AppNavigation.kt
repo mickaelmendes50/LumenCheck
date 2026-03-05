@@ -22,5 +22,7 @@ fun AppNavigation(
         composable("home") {
             HomeScreen(navController)
         }
+        composable("lumen") {
+        }
     }
 }
