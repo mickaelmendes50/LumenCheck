@@ -34,7 +34,7 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
-private val MediumColorScheme = lightColorScheme(
+private val MediumColorScheme = darkColorScheme(
     primary = customYellow,
     secondary = PurpleGrey40,
     tertiary = Pink40,

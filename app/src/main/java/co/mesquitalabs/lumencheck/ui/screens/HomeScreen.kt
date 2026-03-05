@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import co.mesquitalabs.lumencheck.R
@@ -52,7 +53,15 @@ fun HomeScreen(
             Text(
                 text = "Lumen Check",
                 style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.primary,
+                fontWeight = FontWeight.ExtraBold,
                 modifier = Modifier.padding(16.dp)
+            )
+            Text(
+                text = "Verifique a luminosidade do seu ambiente",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(16.dp),
+                color = MaterialTheme.colorScheme.inverseSurface
             )
         }
 
@@ -63,9 +72,9 @@ fun HomeScreen(
             onClick = { navController.navigate("lumen") }
         ) {
             Text(
-                text = "Verificar Luminosidade",
+                text = "Verificar",
                 style = MaterialTheme.typography.headlineSmall,
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier.padding(16.dp)
             )
         }
     }
