@@ -8,6 +8,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import co.mesquitalabs.lumencheck.enums.AmbientLightLevel
 
@@ -33,6 +34,22 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+private val MediumColorScheme = lightColorScheme(
+    primary = customYellow,
+    secondary = PurpleGrey40,
+    tertiary = Pink40,
+    background = Color(0xFF7E7E7E),
+
+    /* Other default colors to override
+    surface = Color(0xFFFFFBFE),
+    onPrimary = Color.White,
+    onSecondary = Color.White,
+    onTertiary = Color.White,
+    onBackground = Color(0xFF1C1B1F),
+    onSurface = Color(0xFF1C1B1F),
+    */
+)
+
 @Composable
 fun LumencheckTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -42,9 +59,9 @@ fun LumencheckTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when (ambientLightLevel) {
-        AmbientLightLevel.DARK -> DarkColorScheme   // seu esquema escuro
-        AmbientLightLevel.MEDIUM -> LightColorScheme // “meio termo”
-        AmbientLightLevel.LIGHT -> LightColorScheme // claro
+        AmbientLightLevel.DARK -> DarkColorScheme
+        AmbientLightLevel.MEDIUM -> MediumColorScheme
+        AmbientLightLevel.LIGHT -> LightColorScheme
     }
 
     MaterialTheme(
