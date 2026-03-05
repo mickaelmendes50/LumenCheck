@@ -6,11 +6,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import co.mesquitalabs.lumencheck.ui.navigation.AppNavigation
+import co.mesquitalabs.lumencheck.viewmodel.SensorViewModel
 
 @Composable
-fun MainContainer() {
+fun MainContainer(
+    viewModel: SensorViewModel
+) {
     val navController = rememberNavController()
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        AppNavigation(navController, innerPadding)
+        AppNavigation(
+            navController = navController,
+            paddingValues = innerPadding,
+            viewModel = viewModel
+        )
     }
 }

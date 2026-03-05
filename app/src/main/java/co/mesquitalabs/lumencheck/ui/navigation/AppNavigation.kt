@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,7 +17,7 @@ import co.mesquitalabs.lumencheck.viewmodel.SensorViewModel
 fun AppNavigation(
     navController: NavHostController,
     paddingValues: PaddingValues,
-    viewModel: SensorViewModel = viewModel(),
+    viewModel: SensorViewModel,
 ) {
     val ambientLight by viewModel.ambientLight.collectAsState()
 
@@ -31,7 +30,11 @@ fun AppNavigation(
             HomeScreen(navController)
         }
         composable("lumen") {
-            LumenScreen(navController = navController, ambientLightLevel = ambientLight)
+            LumenScreen(
+                navController = navController,
+                ambientLightLevel = ambientLight,
+                viewModel = viewModel
+            )
         }
     }
 }

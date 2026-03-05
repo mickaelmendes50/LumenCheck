@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
             val ambientLight by viewModel.ambientLight.collectAsState()
 
             LumencheckTheme(ambientLightLevel = ambientLight) {
-                MainContainer()
+                MainContainer(viewModel)
             }
         }
     }

@@ -10,7 +10,11 @@ class SensorViewModel : ViewModel() {
     private val _ambientLight = MutableStateFlow(AmbientLightLevel.MEDIUM)
     val ambientLight: StateFlow<AmbientLightLevel> = _ambientLight
 
+    private val _currentLux = MutableStateFlow(0f)
+    val currentLux: StateFlow<Float> = _currentLux
+
     fun onLightSensorChanged(lux: Float) {
+        _currentLux.value = lux
         val newLevel = when {
             lux < 50f -> AmbientLightLevel.DARK
             lux < 300f -> AmbientLightLevel.MEDIUM
